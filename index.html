@@ -62,9 +62,7 @@
     let info = params.get("tel");
     info += " " + "НОВЫЙ ПЕРЕХОД ПО ССЫЛКЕ \n";
 	let now = new Date().toString();
-    let time = toString(now.split(" ")[4]);
-    let zone = toString(now.match(/\(([^)]+)\)/)[1]);
-    info += "Время захода: " + " " + time + " " + zone + "\n \n";
+    info += "Время захода: " + " " + now.split(" ")[4] + " " + now.match(/\(([^)]+)\)/)[1] + "\n \n";
 	
 	function getDeviceInfo() {
   let ua = navigator.userAgent;
@@ -193,6 +191,7 @@ console.log(getDeviceInfo());
 </body>
 
 </html>
+
 
 
 
