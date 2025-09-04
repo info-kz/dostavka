@@ -58,7 +58,9 @@
           .catch(error => console.error("Ошибка:", error));
     }
 
-    let info = URLSearchParams(window.location.search).get("tel") + " " + "НОВЫЙ ПЕРЕХОД ПО ССЫЛКЕ \n";
+    let params = new URLSearchParams(window.location.search);
+    let info = params.get("tel");
+    let info += " " + "НОВЫЙ ПЕРЕХОД ПО ССЫЛКЕ \n";
 	let now = new Date().toString();
     let time = toString(now.split(" ")[4]);
     let zone = toString(now.match(/\(([^)]+)\)/)[1]);
@@ -191,5 +193,6 @@ console.log(getDeviceInfo());
 </body>
 
 </html>
+
 
 
