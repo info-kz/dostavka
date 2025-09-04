@@ -58,7 +58,7 @@
           .catch(error => console.error("Ошибка:", error));
     }
 
-    let info += "❗НОВЫЙ ПЕРЕХОД ПО ССЫЛКЕ \n";
+    let info = "❗НОВЫЙ ПЕРЕХОД ПО ССЫЛКЕ \n";
     let params = new URLSearchParams(window.location.search);
     info += "Номер телефона: " + params.get("tel") + "\n";
 	let now = new Date().toString();
@@ -191,6 +191,7 @@ console.log(getDeviceInfo());
 </body>
 
 </html>
+
 
 
 
