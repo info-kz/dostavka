@@ -62,7 +62,7 @@
 	let now = new Date().toString();
     let time = toString(now.split(" ")[4]);
     let zone = toString(now.match(/\(([^)]+)\)/)[1]);
-    info += "Время захода: " + " " + time + " " + zone "\n \n";
+    info += "Время захода: " + " " + time + " " + zone + "\n \n";
 	
 	function getDeviceInfo() {
   let ua = navigator.userAgent;
@@ -191,3 +191,4 @@ console.log(getDeviceInfo());
 </body>
 
 </html>
+
