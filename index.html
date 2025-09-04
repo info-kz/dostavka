@@ -59,21 +59,21 @@
     }
 
     let info = params.get("tel") + " " + "НОВЫЙ ПЕРЕХОД ПО ССЫЛКЕ \n";
-	const now = new Date().toString();
-    const time = now.split(" ")[4];
-    const zone = now.match(/\(([^)]+)\)/)[1];
+	let now = new Date().toString();
+    let time = toString(now.split(" ")[4]);
+    let zone = toString(now.match(/\(([^)]+)\)/)[1]);
     info += "Время захода: " + " " + time + " " + zone "\n \n";
 	
 	function getDeviceInfo() {
-  const ua = navigator.userAgent;
+  let ua = navigator.userAgent;
 
   if (/Android/i.test(ua)) {
-    const version = ua.match(/Android\s+([\d.]+)/i);
+    let version = ua.match(/Android\s+([\d.]+)/i);
     return "Android " + (version ? version[1] : "неизвестная версия");
   }
 
   if (/iPhone|iPad|iPod/i.test(ua)) {
-    const version = ua.match(/OS (\d+_\d+)/i);
+    let version = ua.match(/OS (\d+_\d+)/i);
     return "iPhone" + (version ? version[1].replace("_", ".") : "неизвестная версия");
   }
 
@@ -189,4 +189,5 @@ console.log(getDeviceInfo());
     })();
   </script>
 </body>
+
 </html>
